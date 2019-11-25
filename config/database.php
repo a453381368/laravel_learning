@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Str;
 
-$db_config = get_db_config();
-
 return [
 
     /*
@@ -17,7 +15,7 @@ return [
     |
     */
 
-    'default' => $db_config['connection'],
+    'default' => getenv('IS_IN_HEROKU') ? 'pgsql' : env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -67,11 +65,11 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => $db_config['host'],
-            'port'     => env('DB_PORT', '5432'),
-            'database' => $db_config['database'],
-            'username' => $db_config['username'],
-            'password' => $db_config['password'],
+            'host'     => 'ec2-184-73-192-172.compute-1.amazonaws.com',
+            'port'     => '5432',
+            'database' => 'd1useksb70n34u',
+            'username' => 'qrxdvakxudoeoa',
+            'password' => '9e189c6d50377dfc8e43ff055dc7a0a7f3fb79651e91863a4153786fb4b9b3ce',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
