@@ -24,10 +24,12 @@ class UsersController extends Controller
     {
         return view('users.create');
     }
+
     public function show(User $user)
     {
         return view('users.show', compact('user'));
     }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -78,6 +80,14 @@ class UsersController extends Controller
     {
         $users = User::paginate(10);
         return view('users.index', compact('users'));
+    }
+
+    public function destroy(User $user)
+    {
+        $this->authorize('destroy', $user);
+        $user->delete();
+        session()->flash('success', '成功删除用户！');
+        return back();
     }
     
 }
