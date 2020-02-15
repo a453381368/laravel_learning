@@ -23,6 +23,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "yarn": "^1.19.2"
+        "yarn": "^1.22.0"
     }
 }
